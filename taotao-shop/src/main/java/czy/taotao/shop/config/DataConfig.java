@@ -18,7 +18,7 @@ import java.lang.Exception;
 
 @Configuration
 @PropertySource("classpath:jdbc.properties")
-@MapperScan("czy.taotao.shop,mapper")
+@MapperScan("czy.taotao.shop.mapper")
 public class DataConfig {
 	
 	@Autowired
@@ -54,10 +54,5 @@ public class DataConfig {
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory){
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
-	
-	
-	
-	
-	
 	
 }
