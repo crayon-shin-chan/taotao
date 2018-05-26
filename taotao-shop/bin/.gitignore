@@ -1,6 +1,4 @@
 .classpath
+target/
 .settings/
-build/
-WebRoot/
 .project
-/bin/
