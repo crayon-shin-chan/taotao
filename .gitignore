@@ -4,3 +4,5 @@ build/
 WebRoot/
 .project
 /bin/
+src/
+.classpath
