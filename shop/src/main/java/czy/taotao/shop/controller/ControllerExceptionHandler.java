@@ -13,6 +13,9 @@ public class ControllerExceptionHandler {
 
 		@ExceptionHandler(HttpException.class)
 		public  ResponseEntity<String> handlerHttpException(HttpException ex){
+			System.out.println(ex.getMessage());
+			System.out.println("异常处理器接收到异常：");
+			System.out.println(ex.toString());
 			return new ResponseEntity<String>(ex.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	
