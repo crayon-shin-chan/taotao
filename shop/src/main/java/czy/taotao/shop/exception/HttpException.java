@@ -8,8 +8,4 @@ public class HttpException extends Exception{
 			super(s);
 		}
 		
-		public String getMessage(){
-			return super.getLocalizedMessage();
-		}
-
 }
