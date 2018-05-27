@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import czy.taotao.shop.service.UserService;
-
+import czy.taotao.shop.exception.HttpException;
 
 @RestController("UserController")
 public class UserController {
@@ -30,7 +30,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/insert", method = RequestMethod.POST)
-	public void insertUser(@RequestBody User user) {
+	public void insertUser(@RequestBody User user) throws HttpException{
 		this.userService.insertUser(user);
 		return;
 	}
