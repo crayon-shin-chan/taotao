@@ -25,7 +25,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public User findUserById(@PathVariable int id) {
+	public User findUserById(@PathVariable int id) throws HttpException{
 		return this.userService.findUserById(id);
 	}
 
@@ -36,14 +36,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
-	public void updateUser(@RequestBody User user) {
+	public void updateUser(@RequestBody User user) throws HttpException{
 		this.userService.updateUser(user);
 		return;
 	}
 
 	
 	@RequestMapping(value = "/user/delete",method = RequestMethod.POST)
-	public void deleteUser(@RequestBody User user) {
+	public void deleteUser(@RequestBody User user) throws HttpException{
 		this.userService.deleteUser(user.getId());
 		return;
 	}
