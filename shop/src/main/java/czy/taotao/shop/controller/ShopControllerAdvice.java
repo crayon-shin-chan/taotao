@@ -10,7 +10,7 @@ public class ShopControllerAdvice {
 
 	@ExceptionHandler(HttpException.class)
 	public ResponseEntity<String> handleHttpException(HttpException ex) {
-		
+		System.out.println("接收到异常通知");
 		return new ResponseEntity<String>(ex.getMsg(), ex.getStatus());
 		
 	}

@@ -1,8 +1,9 @@
-/target/
-!.mvn/wrapper/maven-wrapper.jar
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
 /bin/
 ### STS ###
-.gradle
 .apt_generated
 .classpath
 .factorypath

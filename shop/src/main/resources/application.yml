@@ -17,6 +17,13 @@ spring:
     sql-script-encoding: utf-8
     test-on-connect: true
     
+management:
+  endpoints:
+    web:
+      base-path: "/endpoint"
+      exposure:
+        include: "*"
+    
 mybatis:
   configuration:
     log-prefix: mybatis

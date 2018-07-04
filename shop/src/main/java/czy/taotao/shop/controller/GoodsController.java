@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.http.HttpStatus;
 import czy.taotao.shop.model.Goods;
-import czy.taotao.shop.exception.HttpException;
 import czy.taotao.shop.service.GoodsService;
+import czy.taotao.shop.exception.HttpException;
 
 @RestController
 @RequestMapping("/goods")
