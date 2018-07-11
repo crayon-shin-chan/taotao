@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d5e55f3-c425-4a44-bc4d-093117a6746c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/eureka-center_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/eureka-center_main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-center/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-center/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-center/out/production/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-center/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-center/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-center/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-center/src/main/java/czy/taotao/eurekacenter/EurekaCenterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-center/src/main/java/czy/taotao/eurekacenter/EurekaCenterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-center/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-center/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/config-center/.gradle/" />
     <ignored path="$PROJECT_DIR$/config-center/build/" />
@@ -42,11 +46,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bootstrap.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shop/src/main/resources/bootstrap.yml">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config-center/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="261">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -1076,8 +1080,11 @@
         <option value="$PROJECT_DIR$/shop/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/shop/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/config-center/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/config-center/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/shop/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/eureka-center/src/main/java/czy/taotao/eurekacenter/EurekaCenterApplication.java" />
+        <option value="$PROJECT_DIR$/eureka-center/build.gradle" />
+        <option value="$PROJECT_DIR$/eureka-center/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/config-center/src/main/resources/application.yml" />
       </list>
     </option>
   </component>
@@ -1091,8 +1098,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="973" />
-    <option name="y" value="222" />
+    <option name="x" value="237" />
+    <option name="y" value="104" />
     <option name="width" value="2951" />
     <option name="height" value="1655" />
   </component>
@@ -1119,25 +1126,20 @@
             <path>
               <item name="taotao" type="b2602c69:ProjectViewProjectNode" />
               <item name="taotao" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="taotao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="taotao" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="config-center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="taotao" type="b2602c69:ProjectViewProjectNode" />
               <item name="taotao" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="config-center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="taotao" type="b2602c69:ProjectViewProjectNode" />
               <item name="taotao" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="config-center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -1175,7 +1177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShopApplication">
+  <component name="RunManager" selected="Spring Boot.EurekaCenterApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -1202,6 +1204,16 @@
         <value defaultName="singleModule" />
       </option>
       <patterns />
+    </configuration>
+    <configuration name="EurekaCenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eureka-center_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="czy.taotao.eurekacenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="czy.taotao.eurekacenter.EurekaCenterApplication" />
     </configuration>
     <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="shop_main" />
@@ -1238,9 +1250,11 @@
     <list>
       <item itemvalue="Groovy.build" />
       <item itemvalue="Spring Boot.ShopApplication" />
+      <item itemvalue="Spring Boot.EurekaCenterApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.EurekaCenterApplication" />
         <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Groovy.build" />
       </list>
@@ -1257,7 +1271,7 @@
       <option name="presentableId" value="Default" />
       <updated>1531230574196</updated>
       <workItem from="1531230575573" duration="55000" />
-      <workItem from="1531314927383" duration="4678000" />
+      <workItem from="1531314927383" duration="7007000" />
     </task>
     <task id="LOCAL-00001" summary="配置中心测试成功">
       <created>1531319200833</created>
@@ -1266,11 +1280,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531319200833</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改为yml文件">
+      <created>1531319630121</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1531319630121</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4733000" />
+    <option name="totallyTimeSpent" value="7062000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1282,11 +1303,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="973" y="222" width="2951" height="1655" extended-state="0" />
+    <frame x="941" y="122" width="2951" height="1655" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5001725" side_tool="true" weight="0.32939634" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
@@ -1302,9 +1323,9 @@
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49982753" weight="0.32939634" />
       <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939634" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49982753" visible="true" weight="0.32939634" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20662297" />
       <window_info id="Web" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -1361,7 +1382,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="配置中心测试成功" />
-    <option name="LAST_COMMIT_MESSAGE" value="配置中心测试成功" />
+    <MESSAGE value="修改为yml文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改为yml文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1369,13 +1391,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eureka-center/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="40" column="1" selection-start-line="36" selection-end-line="40" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-config-client/2.0.0.RELEASE/773a77c4ccdf57144c5d5703487702eb0777b334/spring-cloud-config-client-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/config/client/ConfigClientStateHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -1484,33 +1499,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config-center/config-center.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-center/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/push">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config-center/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/src/main/resources/bootstrap.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state>
+          <caret selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="33" column="42" selection-start-line="33" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-center/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="907">
+          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-center/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-center/src/main/java/czy/taotao/eurekacenter/EurekaCenterApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-center/config-center.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-center/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -1566,7 +1605,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>shop_main|shop</last-edited>
+          <last-edited>eureka-center_main|eureka-center</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

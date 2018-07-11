@@ -7,8 +7,6 @@ spring:
         git:
           uri: https://github.com/crayon-shin-chan/taotao-config.git
           default-label: master
-          username: 1253665625@qq.com
-          password:
           clone-on-start: false
           refresh-rate: 360
 

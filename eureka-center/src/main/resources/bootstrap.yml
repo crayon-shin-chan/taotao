@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka
+  cloud:
+    config:
+      enabled: true
+      name: eureka
+      profile: dev
+      label: master
+      uri: http://localhost:8888/
+      failFast: true
+      retry:
+        initialInterval: 1000
+        maxInterval: 90000
+        maxAttempts: 5
