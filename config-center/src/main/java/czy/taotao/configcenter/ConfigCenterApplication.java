@@ -20,6 +20,15 @@ public class ConfigCenterApplication {
 	 * /{label}/name}-{profile}.(yml|json|properties)：这种方式获取结果与上面一样，但是可以加上标签
 	 * /{name}/{profile}：这种方式获取到的配置文件会嵌套在返回jaon结果中，作为一个字段返回
 	 * /{name}/{profile}/{label}：可以获取指定标签内容
+	 *
+	 * 配置中心有关加密的路由有：
+	 * /key：获取加密公钥的方法，返回公钥文本
+	 * /encrypt/status：获取当前加密状态
+	 * /encrypt：对请求体进行加密
+	 * /decrypt：对请求体进行解密
+	 * /encrypt/{name}/{profiles}：使用指定name、profiles对应的key对请求体加密
+	 * /decrypt/{name}/{profiles}：使用指定name、profiles对应的key对请求体解密
+	 * 注意：开启加密之后，原有配置文件端点返回数据并不会加密，还是明文，可能配置不对
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigCenterApplication.class, args);
