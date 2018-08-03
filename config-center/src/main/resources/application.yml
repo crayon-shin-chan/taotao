@@ -18,18 +18,18 @@ spring:
         encrypt:
           enabled: true
         native:
-          search-locations: classpath:/config/
-          default-label: master
-          fail-on-error: true
           order: 1
           version: 1.0
+          default-label: master
+          fail-on-error: true
           add-label-locations: false
-
+          search-locations: classpath:/config/
 
 
 #配置中心端口8888
 server:
   port: 8888
+
 
 
 

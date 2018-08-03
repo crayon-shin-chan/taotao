@@ -11,3 +11,9 @@ encrypt:
     #algorithm: default
     #salt: abcdef
     #strong: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9999/eureka
+    use-dns-for-fetching-service-urls: false
