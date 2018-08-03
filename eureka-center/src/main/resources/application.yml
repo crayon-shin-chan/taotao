@@ -1,0 +1,8 @@
+
+#因为配置中心也要注册为服务的缘故，所以服务中心的配置文件没有从配置中心获取
+spring:
+  application:
+    name: eureka-center
+  profiles:
+      active: dev
+
