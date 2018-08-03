@@ -1,15 +1,33 @@
 spring:
+  profiles:
+  #spring cloud通过不同的profile来控制实际的配置仓库类型：
+  #git、native、subversion、vault、jdbc、composite等六种仓库类型
+  #默认为git配置存储库
+      active: native
   application:
     name: config-center
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/crayon-shin-chan/taotao-config.git
+        #bootstrap: false
+        #prefix:
+        #accept-empty: true
+        #default-application-name: application
+        #default-label: master
+        #default-profile: dev
+        #encrypt:
+          #enabled: true
+        native:
+          search-locations: classpath:/config/
           default-label: master
-          clone-on-start: false
-          refresh-rate: 360
+          fail-on-error: true
+          order: 1
+          version: 1.0
+          add-label-locations: false
 
+
+
+#配置中心端口8888
 server:
   port: 8888
 
