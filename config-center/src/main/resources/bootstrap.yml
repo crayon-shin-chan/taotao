@@ -1,0 +1,13 @@
+encrypt:
+  #加密的key只能配置到bootstrap中
+  key: config
+  fail-on-error: true
+  key-store:
+    alias: config
+    location: classpath:config.jks
+    password: 123456
+    secret: 123456
+  #rsa:
+    #algorithm: default
+    #salt: abcdef
+    #strong: false

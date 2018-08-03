@@ -12,11 +12,11 @@ spring:
         #bootstrap: false
         #prefix:
         #accept-empty: true
-        #default-application-name: application
         #default-label: master
-        #default-profile: dev
-        #encrypt:
-          #enabled: true
+        default-profile: dev
+        default-application-name: application
+        encrypt:
+          enabled: true
         native:
           search-locations: classpath:/config/
           default-label: master
