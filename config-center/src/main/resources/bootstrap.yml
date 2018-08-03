@@ -12,25 +12,16 @@ encrypt:
     #salt: abcdef
     #strong: false
 
-#貌似服务注册的客户端配置应该放在引导文件里
 eureka:
-#服务客户端配置，服务url、注册实例id等
-  #一组服务首先的标识是application name，然后每个服务有自己的instance-id来标识自己
   client:
-      #服务中心自注册时，如果配置抓取注册表，则会有一开始请求失败的现象
-      #因为一开始注册中心未启动，注册表获取不到
-      #而注册自己的行为是在注册中心启动之后进行的，不受影响
-      fetch-registry: false
+      fetch-registry: true
       register-with-eureka: true
       eureka-server-connect-timeout-seconds: 20
       eureka-connection-idle-timeout-seconds: 20
       service-url:
             defaultZone: http://localhost:9999/eureka
-
-  #向服务中心注册的服务实例属性
   instance:
       appname: config-center
       app-group-name: manage
       prefer-ip-address: true
-      #这个ip-address如果配置为ipAddress就不行
       instance-id: ${spring.cloud.client.ip-address}:${server.port}

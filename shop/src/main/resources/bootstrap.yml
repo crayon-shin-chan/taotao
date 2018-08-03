@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: shop
   cloud:
@@ -13,3 +15,19 @@ spring:
         initialInterval: 1000
         maxInterval: 90000
         maxAttempts: 5
+
+
+eureka:
+  client:
+      fetch-registry: true
+      register-with-eureka: true
+      eureka-server-connect-timeout-seconds: 20
+      eureka-connection-idle-timeout-seconds: 20
+      service-url:
+            defaultZone: http://localhost:9999/eureka
+  instance:
+      appname: shop
+      app-group-name: shop
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
