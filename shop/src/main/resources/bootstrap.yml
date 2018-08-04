@@ -16,7 +16,6 @@ spring:
         maxInterval: 90000
         maxAttempts: 5
 
-
 eureka:
   client:
       fetch-registry: true
