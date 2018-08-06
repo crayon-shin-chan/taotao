@@ -28,5 +28,5 @@ eureka:
       appname: shop
       app-group-name: shop
       prefer-ip-address: true
-      instance-id: ${spring.cloud.client.ip-address}:${server.port}
-
+      instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
+#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
