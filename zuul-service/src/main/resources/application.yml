@@ -1,0 +1,7 @@
+server:
+  port: 7777
+
+#加上负载均衡超时，第一次访问zuul不会出错
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
