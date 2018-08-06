@@ -1,0 +1,27 @@
+encrypt:
+  #加密的key只能配置到bootstrap中
+  key: config
+  fail-on-error: true
+  key-store:
+    alias: config
+    location: classpath:config.jks
+    password: 123456
+    secret: 123456
+  #rsa:
+    #algorithm: default
+    #salt: abcdef
+    #strong: false
+
+eureka:
+  client:
+      fetch-registry: true
+      register-with-eureka: true
+      eureka-server-connect-timeout-seconds: 20
+      eureka-connection-idle-timeout-seconds: 20
+      service-url:
+            defaultZone: http://localhost:9999/eureka
+  instance:
+      appname: config-service
+      app-group-name: manage
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}

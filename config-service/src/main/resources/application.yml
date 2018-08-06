@@ -1,0 +1,37 @@
+spring:
+  profiles:
+  #spring cloud通过不同的profile来控制实际的配置仓库类型：
+  #git、native、subversion、vault、jdbc、composite等六种仓库类型
+  #默认为git配置存储库
+      active: native
+  application:
+    name: config-service
+  cloud:
+    config:
+    #是否允许本地属性覆盖配置服务器属性
+      allow-override: false
+      server:
+        #bootstrap: false
+        #prefix:
+        #accept-empty: true
+        #default-label: master
+        default-profile: dev
+        default-application-name: application
+        encrypt:
+          enabled: true
+        native:
+          order: 1
+          version: 1.0
+          default-label: master
+          fail-on-error: true
+          add-label-locations: false
+          search-locations: classpath:/config/
+
+
+#配置中心端口8888
+server:
+  port: 8888
+
+
+
+

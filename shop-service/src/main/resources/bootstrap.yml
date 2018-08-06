@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: shop-service
+  cloud:
+    config:
+      enabled: true
+      name: shop
+      profile: dev
+      label: master
+      uri: http://localhost:8888/
+      failFast: true
+      retry:
+        initialInterval: 1000
+        maxInterval: 90000
+        maxAttempts: 5
+
+eureka:
+  client:
+      fetch-registry: true
+      register-with-eureka: true
+      eureka-server-connect-timeout-seconds: 20
+      eureka-connection-idle-timeout-seconds: 20
+      service-url:
+            defaultZone: http://localhost:9999/eureka
+  instance:
+      appname: shop-service
+      app-group-name: shop-service
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
+#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
