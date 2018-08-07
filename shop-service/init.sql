@@ -8,4 +8,6 @@ create table goods(
 	price double not null
 )engine=innodb  default charset=utf8;
 
+insert into goods (name,price) values ("iphone8",8888),("小米MIX3",5000),("华为META10",4300);
+
 desc goods;

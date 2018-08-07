@@ -1,4 +1,4 @@
-package czy.taotao.config;
+package czy.taotao.consumer.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
