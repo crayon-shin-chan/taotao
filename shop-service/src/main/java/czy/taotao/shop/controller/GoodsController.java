@@ -1,16 +1,15 @@
 package czy.taotao.shop.controller;
 
 
+import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
-import java.lang.Exception;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.http.HttpStatus;
 import czy.taotao.shop.model.Goods;
 import czy.taotao.shop.service.GoodsService;
 import czy.taotao.shop.exception.HttpException;
@@ -28,6 +27,7 @@ public class GoodsController {
 	/*所有请求方法都映射*/
 	@RequestMapping("/all")
 	public List<Goods> getGoodses(){
+		System.out.println("获取所有商品"+new Date());
 		return this.goodsService.selectAll();
 	}
 	
