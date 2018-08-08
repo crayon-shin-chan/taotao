@@ -1,2 +1,7 @@
 server:
   port: 0
+
+#启动FeignClient客户端的熔断器功能
+feign:
+  hystrix:
+    enabled: true

@@ -1,4 +1,4 @@
-package czy.taotao.consumer.config;
+package czy.taotao.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
