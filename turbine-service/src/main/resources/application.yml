@@ -1,0 +1,15 @@
+
+server:
+  port: 6666
+
+spring:
+  application:
+    name: turbine-service
+
+turbine:
+  aggregator:
+    cluster-config: default
+  combine-host-port: true
+  cluster-name-expression: new String("default")
+
+
