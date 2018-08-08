@@ -34,7 +34,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.cloud:spring-cloud-starter-config')
 	compile('org.springframework.cloud:spring-cloud-starter-openfeign')
+	/* 这个依赖在没有添加熔断器监控面板时，并不需要添加，而有了dashboard依赖后，就必须添加这个依赖 */
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+	/* 单应用的熔断器监控仪表盘依赖 */
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
