@@ -1,9 +1,10 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: consumer-service
+  profiles:
+    active: dev
   cloud:
+    #配置服务客户端
     config:
       enabled: true
       name: consumer
@@ -18,8 +19,8 @@ spring:
 
 eureka:
   client:
-      fetch-registry: true
-      register-with-eureka: true
+      fetch-registry: false
+      register-with-eureka: false
       eureka-server-connect-timeout-seconds: 20
       eureka-connection-idle-timeout-seconds: 20
       service-url:
@@ -29,6 +30,6 @@ eureka:
       app-group-name: consumer-service
       prefer-ip-address: true
       instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
-#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
+#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id
 
 

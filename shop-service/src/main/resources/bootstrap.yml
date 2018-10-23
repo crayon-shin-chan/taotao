@@ -1,8 +1,8 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: shop-service
+  profiles:
+    active: dev
   cloud:
     config:
       enabled: true
