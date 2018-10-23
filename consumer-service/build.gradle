@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.3.RELEASE'
+		springBootVersion = '2.0.6.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -24,9 +24,8 @@ repositories {
 }
 
 ext {
-	springCloudVersion = 'Finchley.RELEASE'
+	springCloudVersion = 'Finchley.SR1'
 }
-
 
 dependencies {
 	/* 使用了FeignClient后，必须加入web依赖，不然启动自然停止，正常退出 */
