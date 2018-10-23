@@ -12,7 +12,7 @@ import czy.taotao.shop.exception.HttpException;
 public class GoodsService {
 	
 	@Autowired
-	GoodsMapper goodsMapper;
+	private GoodsMapper goodsMapper;
 	
 	public List<Goods> selectAll(){
 		return this.goodsMapper.selectAll();
