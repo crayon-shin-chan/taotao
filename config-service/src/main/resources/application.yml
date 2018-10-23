@@ -11,20 +11,27 @@ spring:
     #是否允许本地属性覆盖配置服务器属性
       allow-override: false
       server:
-        #bootstrap: false
-        #prefix:
-        #accept-empty: true
-        #default-label: master
+        #指定配置服务是否应该使用从远程存储库中获取的属性初始化自身环境
+        bootstrap: false
+        #资源路径的前缀
+        prefix:
+        #请求中指定应用程序不存在时，是否返回404
+        accept-empty: true
+        #当请求未指定标签时，使用的默认标签,profile,应用名称
+        default-label: master
         default-profile: dev
         default-application-name: application
+        #是否启用加密
         encrypt:
           enabled: true
+        #本地文件系统仓库配置
         native:
           order: 1
           version: 1.0
           default-label: master
           fail-on-error: true
           add-label-locations: false
+          #搜索配置文件的位置
           search-locations: classpath:/config/
 
 
