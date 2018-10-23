@@ -13,12 +13,13 @@ spring:
       profile: dev
       label: master
       uri: http://localhost:8888/
+      #快速失败
       failFast: true
+      #配置服务不可用时的重试策略
       retry:
         initialInterval: 1000
         maxInterval: 90000
         maxAttempts: 5
-
 
 eureka:
   client:
