@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     #添加了{cipher}前缀后会在发送时自动解密
-    url: jdbc:mysql://127.0.0.1:3306/shop?useUnicode=true&characterEncoding=utf-8&useSSL=true
-    #url: '{cipher}AQAgJLo6KR7R6wg7HTL9oUf7jy2wz01QkN3CEUIVoYxbINt+r1AIMVKafAnvtrj/fs5mfCL6qr2yOeQixowzAcxu5rCaXcmZERGWmrjqgkEnoKwWZZ2sOHB04hJImOBZbh4f1d6N70Ro3WXCGnqvVhBeGWdaIZdbdaD/9nqCM2XTBNL/dItbIhLDwOwcLgJ1vy0V/uL6zJJt+eGrEwT/eu9FoPHLQ/OG9bDLZJSjjfSxir7YHUSilizDKEqZOQ3ZIsITtq0X5ar6uOfUweckYv8hSOxs6ArblaazgoOtvTVQYWNL1zO9hagKzr0n5oD7hoBuYLnswHy+bAvwDckbdpf/RC09kZ8Mi6a6ZRa6G/6Fv11/7EqW2LKV5IwduJqt+7JqDN8sde5gi3i9Zb7UPyldZD3CpTrdbxpDHoQzCzHvPDwzpLdANDM2VqP3b/rkU9LO/Q277HVOaZ0v7dkSFhtrqXmyDIULz+VhraLAfaZrYA=='
+    #url: jdbc:mysql://127.0.0.1:3306/shop?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    url: '{cipher}AQAgJLo6KR7R6wg7HTL9oUf7jy2wz01QkN3CEUIVoYxbINt+r1AIMVKafAnvtrj/fs5mfCL6qr2yOeQixowzAcxu5rCaXcmZERGWmrjqgkEnoKwWZZ2sOHB04hJImOBZbh4f1d6N70Ro3WXCGnqvVhBeGWdaIZdbdaD/9nqCM2XTBNL/dItbIhLDwOwcLgJ1vy0V/uL6zJJt+eGrEwT/eu9FoPHLQ/OG9bDLZJSjjfSxir7YHUSilizDKEqZOQ3ZIsITtq0X5ar6uOfUweckYv8hSOxs6ArblaazgoOtvTVQYWNL1zO9hagKzr0n5oD7hoBuYLnswHy+bAvwDckbdpf/RC09kZ8Mi6a6ZRa6G/6Fv11/7EqW2LKV5IwduJqt+7JqDN8sde5gi3i9Zb7UPyldZD3CpTrdbxpDHoQzCzHvPDwzpLdANDM2VqP3b/rkU9LO/Q277HVOaZ0v7dkSFhtrqXmyDIULz+VhraLAfaZrYA=='
     username: root
     #123456的加密字符串
     password: 123456

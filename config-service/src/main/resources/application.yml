@@ -21,9 +21,6 @@ spring:
         default-label: master
         default-profile: dev
         default-application-name: application
-        #是否启用加密
-        encrypt:
-          enabled: true
         #本地文件系统仓库配置
         native:
           order: 1

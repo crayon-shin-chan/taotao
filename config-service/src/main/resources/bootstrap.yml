@@ -1,5 +1,5 @@
+#加密的key只能配置到bootstrap中
 encrypt:
-  #加密的key只能配置到bootstrap中
   key: config
   fail-on-error: true
   key-store:
@@ -11,6 +11,7 @@ encrypt:
     #algorithm: default
     #salt: abcdef
     #strong: false
+
 
 eureka:
   client:
@@ -25,3 +26,11 @@ eureka:
       app-group-name: manage
       prefer-ip-address: true
       instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+#这个属性需要配置在bootstrap中，意思为是否启用服务端属性解密，如果为false，则属性在客户端解密
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true

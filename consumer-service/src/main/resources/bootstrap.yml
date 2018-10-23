@@ -22,8 +22,8 @@ spring:
 
 eureka:
   client:
-      fetch-registry: false
-      register-with-eureka: false
+      fetch-registry: true
+      register-with-eureka: true
       eureka-server-connect-timeout-seconds: 20
       eureka-connection-idle-timeout-seconds: 20
       service-url:

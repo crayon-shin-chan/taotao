@@ -14,7 +14,7 @@ public class ConfigCenterApplication {
 	 *
 	 * /error：错误页面
 	 * /encrypt,methods=POST：对请求体进行加密，返回加密后内容
-	 * /encrypt/{name}/{profiles},methods=POST：对请求体进行加密，目前测试发现路径参数name、profiles不起作用
+	 * /encrypt/{name}/{profiles},methods=POST：对请求体进行加密，默认情况下所有的都使用相同的密钥对，如果需要定制密钥对，需要另外配置
 	 * /decrypt,methods=POST：对请求体进行解密，返回明文
 	 * /decrypt/{name}/{profiles},methods=POST：对请求体进行揭秘，路径参数无用
 	 * /encrypt/status],methods=GET：加密是否启用
