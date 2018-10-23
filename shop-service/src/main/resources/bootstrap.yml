@@ -27,7 +27,7 @@ eureka:
       eureka-server-connect-timeout-seconds: 20
       eureka-connection-idle-timeout-seconds: 20
       service-url:
-            defaultZone: http://localhost:9999/eureka
+        defaultZone: http://user:peer1@localhost:9999/eureka,http://user:peer2@localhost:9998/eureka,http://user:peer3@localhost:9997/eureka
   instance:
       appname: shop-service
       app-group-name: shop-service

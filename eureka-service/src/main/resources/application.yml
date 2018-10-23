@@ -13,6 +13,8 @@ eureka:
     a-s-g-query-timeout-ms: 1000
     a-s-g-update-interval-ms: 1000
     a-s-g-cache-expiry-timeout-ms: 1000
+    #禁用自我保护，保证及时踢出不可用服务
+    enable-self-preservation: false
   #启用服务中心控制面板
   dashboard:
     enabled: true

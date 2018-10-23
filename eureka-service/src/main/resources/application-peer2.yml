@@ -7,8 +7,6 @@ eureka:
     service-url:
       defaultZone: http://user:peer1@localhost:9999/eureka,http://user:peer3@localhost:9997/eureka
 
-
-
 spring:
   security:
     user:
