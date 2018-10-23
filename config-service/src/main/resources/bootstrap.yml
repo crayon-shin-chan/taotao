@@ -14,8 +14,8 @@ encrypt:
 
 eureka:
   client:
-      fetch-registry: true
-      register-with-eureka: true
+      fetch-registry: false
+      register-with-eureka: false
       eureka-server-connect-timeout-seconds: 20
       eureka-connection-idle-timeout-seconds: 20
       service-url:
