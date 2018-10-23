@@ -7,6 +7,8 @@ spring:
     #配置服务客户端
     config:
       enabled: true
+      username: user
+      password: 123456
       name: consumer
       profile: dev
       label: master
@@ -16,6 +18,7 @@ spring:
         initialInterval: 1000
         maxInterval: 90000
         maxAttempts: 5
+
 
 eureka:
   client:

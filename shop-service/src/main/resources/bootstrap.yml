@@ -6,6 +6,8 @@ spring:
   cloud:
     config:
       enabled: true
+      username: user
+      password: 123456
       name: shop
       profile: dev
       label: master

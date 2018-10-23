@@ -33,6 +33,11 @@ spring:
           add-label-locations: false
           #搜索配置文件的位置
           search-locations: classpath:/config/
+  #安全配置，默认为开启Http Basic认证
+  security:
+    user:
+      name: user
+      password: 123456
 
 
 #配置中心端口8888
