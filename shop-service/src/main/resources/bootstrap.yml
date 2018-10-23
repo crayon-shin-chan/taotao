@@ -17,6 +17,8 @@ spring:
         initialInterval: 1000
         maxInterval: 90000
         maxAttempts: 5
+      #配置服务请求读取超时
+      request-read-timeout: 5000
 
 eureka:
   client:
@@ -32,3 +34,9 @@ eureka:
       prefer-ip-address: true
       instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
 #当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
+
+health:
+  config:
+    enabled: true
+    time-to-live: 1000
+
