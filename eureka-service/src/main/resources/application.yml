@@ -5,6 +5,12 @@ spring:
     name: eureka-service
   profiles:
       active: peer3
+  #eureka集群化后，复制请求出错，编码也不行
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 eureka:
   #服务中心配置
@@ -17,7 +23,9 @@ eureka:
     enable-self-preservation: false
     #复制请求压缩
     enable-replicated-request-compression: true
-    renewal-percent-threshold: 0.49
+    renewal-percent-threshold: 0.85
+    xml-codec-name: JacksonXml
+    json-codec-name: XStreamJson
   #启用服务中心控制面板
   dashboard:
     enabled: true
@@ -35,7 +43,10 @@ eureka:
   instance:
     appname: eureka-service
     app-group-name: admin
-    prefer-ip-address: true
+    prefer-ip-address: false
     #这个ip-address如果配置为ipAddress就不行
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
+logging:
+  level:
+    root: info
