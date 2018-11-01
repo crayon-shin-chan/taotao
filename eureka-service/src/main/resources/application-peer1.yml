@@ -3,9 +3,11 @@ server:
   port: 9999
 
 eureka:
+  instance:
+    hostname: peer1
   client:
     service-url:
-      defaultZone: http://user:peer2@localhost:9998/eureka,http://user:peer3@localhost:9997/eureka
+      defaultZone: http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
 
 #密码同时也保护了页面
 spring:

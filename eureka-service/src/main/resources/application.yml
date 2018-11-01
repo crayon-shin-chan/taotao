@@ -33,7 +33,7 @@ eureka:
     #服务中心自注册时，如果配置抓取注册表，则会有一开始请求失败的现象
     #因为一开始注册中心未启动，注册表获取不到
     #而注册自己的行为是在注册中心启动之后进行的，不受影响
-    fetch-registry: false
+    fetch-registry: true
     register-with-eureka: true
     eureka-server-connect-timeout-seconds: 20
     eureka-connection-idle-timeout-seconds: 20
