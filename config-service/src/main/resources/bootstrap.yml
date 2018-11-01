@@ -1,3 +1,4 @@
+#spring cloud应用通过创建引导程序上下文来运行，该上下文是主应用程序的父上下文，负责从外部源加载配置属性一级解密外部配置文件中的属性，这两个上下文共享一个Environment
 #加密的key只能配置到bootstrap中
 encrypt:
   key: config
@@ -12,7 +13,6 @@ encrypt:
     #salt: abcdef
     #strong: false
 
-
 eureka:
   client:
       fetch-registry: true
@@ -23,7 +23,7 @@ eureka:
             defaultZone: http://user:peer1@localhost:9999/eureka,http://user:peer2@localhost:9998/eureka,http://user:peer3@localhost:9997/eureka
   instance:
       appname: config-service
-      app-group-name: manage
+      app-group-name: admin
       prefer-ip-address: true
       instance-id: ${spring.cloud.client.ip-address}:${server.port}
 

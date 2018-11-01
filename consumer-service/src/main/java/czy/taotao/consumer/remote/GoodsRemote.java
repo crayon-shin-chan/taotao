@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name="shop-service",fallback = GoodsRemoteFallback.class)
 public interface GoodsRemote {
 
+    /* 使用注解配置，需要调用的服务的接口，参数可以 */
     @GetMapping("/goods/all")
     Goods[] getGoodses();
 
