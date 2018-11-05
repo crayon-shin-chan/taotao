@@ -2,7 +2,7 @@
 server:
   port: 7777
 
-#加上负载均衡超时，第一次访问zuul不会出错
+#加上负载均衡超时，第一次访问zuul不会出错，在这里配置zuul使用服务发现时的超时
 ribbon:
   ReadTimeout: 3000
   ConnectTimeout: 3000
@@ -43,6 +43,7 @@ zuul:
   #Ribbon客户端自动重试失败的请求
   retryable: true
   ribbon-isolation-strategy: thread
+  #这里好像是通过指定URL配置路由时的超时配置
   host:
     connect-timeout-millis: 2000
     connection-request-timeout-millis: -1
