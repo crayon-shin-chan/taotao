@@ -1,0 +1,14 @@
+spring:
+  rabbitmq:
+    host:
+    port:
+    username:
+    password:
+    dynamic: true
+    virtual-host:
+    listener:
+      simple:
+        acknowledge-mode: auto
+      direct:
+        retry:
+          enabled: true

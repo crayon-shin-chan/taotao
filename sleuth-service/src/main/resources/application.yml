@@ -1,0 +1,64 @@
+spring:
+  sleuth:
+    annotation:
+      enabled: true
+    http:
+      legacy:
+        enabled: true
+      enabled: true
+    log:
+      slf4j:
+        enabled: true
+    async:
+      configurer:
+        enabled: true
+      enabled: true
+    baggage-keys:
+    enabled: true
+    feign:
+      enabled: true
+      processor:
+        enabled: true
+    hystrix:
+      strategy:
+        enabled: true
+    integration:
+      enabled: true
+      patterns:
+      websockets:
+        enabled: true
+    keys:
+      http:
+        headers:
+        prefix:
+    messaging:
+      enabled: true
+      kafka:
+        enabled: true
+        remote-service-name:
+      rabbit:
+        enabled: true
+        remote-service-name:
+    opentracing:
+      enabled: true
+    propagation-keys:
+    rxjava:
+      schedulers:
+        hook:
+          enabled: true
+        ignoredthreads:
+    sampler:
+      probability:
+    scheduled:
+      enabled: true
+      skip-pattern:
+    supports-join: true
+    trace-id128: true
+    web:
+      additional-skip-pattern:
+      client:
+        enabled: true
+      enabled: true
+      skip-pattern:
+    zuul:
+      enabled: true
