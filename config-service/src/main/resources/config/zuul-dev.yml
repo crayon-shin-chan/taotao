@@ -6,3 +6,48 @@ server:
 ribbon:
   ReadTimeout: 3000
   ConnectTimeout: 3000
+
+zuul:
+  #这个好像不起作用，没有加入路由中
+  servlet-path: /zuul
+  #路由前缀，结合下面路由配置，最后访问路径为http://localhost:7777/taotao/shop/**
+  prefix: /taotao
+  #路由配置，为一个映射，键为服务名，值为路由
+  routes:
+    shop-service: /shop/**
+    consumer-service: /consumer/**
+  ignore-local-service: true
+  ignore-security-headers: true
+  ignored-headers:
+  ignored-patterns:
+  #忽略的服务模式
+  ignored-services: '*'
+  include-debug-header: true
+  initial-stream-buffer-size: 8192
+  remove-semicolon-content: true
+  retryable: true
+  ribbon-isolation-strategy: thread
+  sensitive-headers:
+
+  set-content-length: true
+  ssl-hostname-validation-enabled: false
+  strip-prefix: true
+  #代理请求时是否发送域名
+  add-host-header: true
+  #是否添加x-forwarded-*请求头
+  add-proxy-headers: true
+  #强制原始查询字符串编码
+  force-original-query-string-encoding: true
+  host:
+    connect-timeout-millis: 2000
+    connection-request-timeout-millis: -1
+    max-per-route-connections: 20
+    max-total-connections: 200
+    socket-timeout-millis: 10000
+    time-to-live: -1
+    time-unit: milliseconds
+
+  thread-pool:
+    thread-pool-key-prefix: hehe
+    use-separate-thread-pools: true
+  trace-request-body: true

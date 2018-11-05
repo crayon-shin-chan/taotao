@@ -4,6 +4,8 @@ package czy.taotao.shop.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,23 +19,23 @@ import czy.taotao.shop.exception.HttpException;
 @RestController
 @RequestMapping("/goods")
 public class GoodsController {
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(GoodsController.class);
 	
 	@Autowired
-	GoodsService goodsService;
-		
-	public GoodsController(){}
+	private GoodsService goodsService;
 	
 	/*所有请求方法都映射*/
 	@RequestMapping("/all")
 	public List<Goods> getGoodses(){
-		System.out.println("获取所有商品"+new Date());
+		logger.info("获取所有商品");
 		return this.goodsService.selectAll();
 	}
 	
 	/*路径参数位置相同时，会导致路由路径模糊不清，如/{id}与/{name}*/
 	@RequestMapping("/id/{id}")
-	public Goods getGoodsById(@PathVariable() int id) throws HttpException{
+	public Goods getGoodsById(@PathVariable() Integer id) throws HttpException{
+		logger.info("获取指定id商品"+id);
 		return this.goodsService.selectById(id);
 	}
 	
