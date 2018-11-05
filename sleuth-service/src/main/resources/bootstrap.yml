@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: turbine-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      enabled: true
+      username: user
+      password: 123456
+      name: turbine
+      profile: dev
+      label: master
+      uri: http://localhost:8888/
+      #获取不到远程属性配置时，快速失败
+      failFast: true
+      retry:
+        initialInterval: 1000
+        maxInterval: 90000
+        maxAttempts: 5
+      #配置服务请求读取超时
+      request-read-timeout: 5000
+      #是否允许本地配置属性覆盖远程配置属性
+      allow-override: false
+      #从任何本地属性源覆盖远程配置属性
+      override-none: false
+      #只允许本地系统属性覆盖远程属性，系统属性即命令行参数、环境变量(不包括本地配置文件)
+      override-system-properties: false
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    eureka-server-connect-timeout-seconds: 20
+    eureka-connection-idle-timeout-seconds: 20
+    service-url:
+      defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
+  instance:
+    appname: turbine-service
+    app-group-name: admin
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
+#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
+
+health:
+  config:
+    enabled: true
+    time-to-live: 1000
