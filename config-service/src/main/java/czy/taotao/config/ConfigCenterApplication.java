@@ -1,5 +1,11 @@
 package czy.taotao.config;
 
+import com.netflix.discovery.DiscoveryClient;
+import com.netflix.discovery.DiscoveryManager;
+import com.netflix.discovery.guice.EurekaModule;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.serviceregistry.Registration;
@@ -8,7 +14,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 /* 启用配置服务器 */
 @EnableConfigServer
 @SpringBootApplication
-public class ConfigCenterApplication {
+public class ConfigCenterApplication{
 
 	/**
 	 * 配置中心所有路由为：
@@ -43,6 +49,6 @@ public class ConfigCenterApplication {
 	 * 注意：开启加密之后，原有配置文件端点返回数据并不会加密，还是明文，可能配置不对
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigCenterApplication.class, args);
+		SpringApplication.run(ConfigCenterApplication.class,args);
 	}
 }
