@@ -1,14 +1,14 @@
 spring:
   application:
-    name: turbine-service
+    name: admin-service
   profiles:
     active: dev
   cloud:
     config:
-      enabled: true
+      enabled: false
       username: user
       password: 123456
-      name: turbine
+      name: admin
       profile: dev
       label: master
       uri: http://localhost:8888/
@@ -36,7 +36,7 @@ eureka:
     service-url:
       defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
   instance:
-    appname: turbine-service
+    appname: admin-service
     app-group-name: admin
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}

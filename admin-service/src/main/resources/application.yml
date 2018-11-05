@@ -1,0 +1,114 @@
+spring:
+  boot:
+    #admin配置
+    admin:
+      #上下文路径
+      context-path: /admin
+      #服务发现
+      discovery:
+        #启用
+        enabled: true
+        converter:
+          #健康端点路径
+          health-endpoint-path: health
+          #端点上下文路径
+          management-context-path: /actuator
+        #忽略的服务
+        ignored-services:
+        #包含的服务
+        services: '*'
+      hazelcast:
+        enabled: true
+        event-store:
+      instance-proxy:
+        ignored-headers:
+      metadata-keys-to-sanitize:
+      monitor:
+        connect-timeout:
+        period:
+        read-timeout:
+        status-lifetime:
+      notify:
+        hipchat:
+          auth-token:
+          description:
+          enabled: true
+          ignore-changes:
+          notify: true
+          room-id:
+          url:
+        letschat:
+          enabled: true
+          ignore-changes:
+          message:
+          room:
+          token:
+          url:
+          username:
+        mail:
+          additional-properties:
+          base-url:
+          cc:
+          enabled: true
+          from:
+          ignore-changes:
+          template:
+          to:
+        ms-teams:
+          de-registered-title:
+          deregister-activity-subtitle-pattern:
+          enabled: true
+          ignore-changes:
+          message-summary:
+          register-activity-subtitle-pattern:
+          registered-title:
+          status-activity-subtitle-pattern:
+          status-changed-title:
+          theme-color:
+          webhook-url:
+        opsgenie:
+          actions:
+          api-key:
+          enabled: true
+          entity:
+          ignore-changes:
+          source:
+          tags:
+          user:
+        pagerduty:
+          client:
+          client-url:
+          description:
+          enabled: true
+          ignore-changes:
+          service-key:
+          url:
+        slack:
+          channel:
+          enabled: true
+          icon:
+          ignore-changes:
+          message:
+          username:
+          webhook-url:
+        telegram:
+          api-url:
+          auth-token:
+          chat-id:
+          disable-notify: true
+          enabled: true
+          ignore-changes:
+          parse-mode:
+      probed-endpoints:
+      ui:
+        brand:
+        cache-templates: true
+        cache:
+          max-age:
+          no-cache: true
+          no-store: true
+        extension-resource-locations:
+        resource-locations:
+        template-location:
+        title:
+
