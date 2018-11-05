@@ -16,8 +16,13 @@ zuul:
   routes:
     shop-service: /shop/**
     consumer-service: /consumer/**
+    exception: /exception/**
+  #zuul服务转发请求时，移除prefix设置的代理前缀
+  strip-prefix: true
   ignore-local-service: true
+  #是否丢弃安全标头
   ignore-security-headers: true
+  #与下游服务交互时，应丢弃的header
   ignored-headers:
   ignored-patterns:
   #忽略的服务模式
@@ -25,19 +30,19 @@ zuul:
   include-debug-header: true
   initial-stream-buffer-size: 8192
   remove-semicolon-content: true
-  retryable: true
-  ribbon-isolation-strategy: thread
-  sensitive-headers:
-
+  #敏感header，阻止流动，这里为全局配置，也可以在routes中单独配置某一服务的敏感header
+  sensitive-headers: Cookie,Set-Cookie,Authorization
   set-content-length: true
   ssl-hostname-validation-enabled: false
-  strip-prefix: true
   #代理请求时是否发送域名
   add-host-header: true
   #是否添加x-forwarded-*请求头
   add-proxy-headers: true
-  #强制原始查询字符串编码
+  #强制原始查询字符串编码,处理传入请求时，将对查询参数进行解码，用于过滤器中的修改。 然后对它们进行重新编码，在路由过滤器中重建后端请求。 如果它是使用Javascript的encodeURIComponent（）方法编码的，则结果可能与原始输入不同
   force-original-query-string-encoding: true
+  #Ribbon客户端自动重试失败的请求
+  retryable: true
+  ribbon-isolation-strategy: thread
   host:
     connect-timeout-millis: 2000
     connection-request-timeout-millis: -1
@@ -46,8 +51,14 @@ zuul:
     socket-timeout-millis: 10000
     time-to-live: -1
     time-unit: milliseconds
-
   thread-pool:
     thread-pool-key-prefix: hehe
     use-separate-thread-pools: true
   trace-request-body: true
+
+#暴漏所有端点，zuul服务独有端点为toutes、filters端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
