@@ -15,7 +15,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulServer;
  */
 
 
-/* 好像不需要这个Server注解，一个Proxy即可 */
+/**
+ * @EnableZuulProxy是@EnableZuulServer的超集，包含了后者启用的所有过滤器
+ */
 @EnableZuulProxy
 @SpringBootApplication
 public class ZuulApplication {
