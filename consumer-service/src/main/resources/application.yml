@@ -1,0 +1,24 @@
+#配置服务中其他服务使用的配置文件，这里的属性为高优先级
+server:
+  port: 0
+
+#启用端点
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      cors:
+        allow-credentials: true
+        allowed-headers:  "*"
+        allowed-methods:  "*"
+        allowed-origins:  "*"
+        max-age: 1800s
+      #暴漏的端点，默认只有两个，端点启用不一定可以访问，只有暴漏出来才能访问
+      exposure:
+        include: "*"
+    enabled-by-default: true
+
+#启动FeignClient客户端的熔断器功能
+feign:
+  hystrix:
+    enabled: true

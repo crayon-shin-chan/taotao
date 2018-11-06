@@ -13,7 +13,7 @@ spring:
     admin:
       #上下文路径
       context-path: /admin
-      #服务发现，貌似启用服务发现后，不需要客户端配置，就可以服务管理
+      #服务发现
       discovery:
         #启用
         enabled: true
@@ -22,12 +22,12 @@ spring:
           health-endpoint-path: health
           #端点上下文路径
           management-context-path: /actuator
-        #忽略的服务，目前有安全控制的服务的端点都访问不到，关闭安全控制暂时不合适
-        ignored-services: eureka-service,admin-service
+        #忽略的服务
+        ignored-services:
         #包含的服务
         services: '*'
       hazelcast:
-        enabled: false
+        enabled: true
         event-store:
       instance-proxy:
         ignored-headers:
@@ -39,7 +39,7 @@ spring:
         status-lifetime:
       notify:
         hipchat:
-          enabled: false
+          enabled: true
           auth-token:
           description:
           ignore-changes:
@@ -47,7 +47,7 @@ spring:
           room-id:
           url:
         letschat:
-          enabled: false
+          enabled: true
           ignore-changes:
           message:
           room:
@@ -55,7 +55,7 @@ spring:
           url:
           username:
         mail:
-          enabled: false
+          enabled: true
           additional-properties:
           base-url:
           cc:
@@ -64,9 +64,9 @@ spring:
           template:
           to:
         ms-teams:
-          enabled: false
           de-registered-title:
           deregister-activity-subtitle-pattern:
+          enabled: true
           ignore-changes:
           message-summary:
           register-activity-subtitle-pattern:
@@ -76,36 +76,36 @@ spring:
           theme-color:
           webhook-url:
         opsgenie:
-          enabled: false
           actions:
           api-key:
+          enabled: true
           entity:
           ignore-changes:
           source:
           tags:
           user:
         pagerduty:
-          enabled: false
           client:
           client-url:
           description:
+          enabled: true
           ignore-changes:
           service-key:
           url:
         slack:
-          enabled: false
           channel:
+          enabled: true
           icon:
           ignore-changes:
           message:
           username:
           webhook-url:
         telegram:
-          enabled: false
           api-url:
           auth-token:
           chat-id:
           disable-notify: true
+          enabled: true
           ignore-changes:
           parse-mode:
       probed-endpoints:
@@ -124,6 +124,3 @@ spring:
         #extension-resource-locations:
         #resource-locations:
         #template-location:
-
-
-

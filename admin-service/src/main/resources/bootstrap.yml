@@ -5,6 +5,7 @@ spring:
     active: dev
   cloud:
     config:
+      #暂时禁用配置服务
       enabled: false
       username: user
       password: 123456
@@ -29,6 +30,8 @@ spring:
 
 eureka:
   client:
+    #服务注册要开启
+    enabled: true
     fetch-registry: true
     register-with-eureka: true
     eureka-server-connect-timeout-seconds: 20

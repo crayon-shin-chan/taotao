@@ -1,0 +1,65 @@
+
+server:
+  port: 7777
+
+#加上负载均衡超时，第一次访问zuul不会出错，在这里配置zuul使用服务发现时的超时
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+
+zuul:
+  #这个好像不起作用，没有加入路由中
+  servlet-path: /zuul
+  #路由前缀，结合下面路由配置，最后访问路径为http://localhost:7777/taotao/shop/**
+  prefix: /taotao
+  #路由配置，为一个映射，键为服务名，值为路由
+  routes:
+    shop-service: /shop/**
+    consumer-service: /consumer/**
+    exception: /exception/**
+  #zuul服务转发请求时，移除prefix设置的代理前缀
+  strip-prefix: true
+  ignore-local-service: true
+  #是否丢弃安全标头
+  ignore-security-headers: true
+  #与下游服务交互时，应丢弃的header
+  ignored-headers:
+  ignored-patterns:
+  #忽略的服务模式
+  ignored-services: '*'
+  include-debug-header: true
+  initial-stream-buffer-size: 8192
+  remove-semicolon-content: true
+  #敏感header，阻止流动，这里为全局配置，也可以在routes中单独配置某一服务的敏感header
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  set-content-length: true
+  ssl-hostname-validation-enabled: false
+  #代理请求时是否发送域名
+  add-host-header: true
+  #是否添加x-forwarded-*请求头
+  add-proxy-headers: true
+  #强制原始查询字符串编码,处理传入请求时，将对查询参数进行解码，用于过滤器中的修改。 然后对它们进行重新编码，在路由过滤器中重建后端请求。 如果它是使用Javascript的encodeURIComponent（）方法编码的，则结果可能与原始输入不同
+  force-original-query-string-encoding: true
+  #Ribbon客户端自动重试失败的请求
+  retryable: true
+  ribbon-isolation-strategy: thread
+  #这里好像是通过指定URL配置路由时的超时配置
+  host:
+    connect-timeout-millis: 2000
+    connection-request-timeout-millis: -1
+    max-per-route-connections: 20
+    max-total-connections: 200
+    socket-timeout-millis: 10000
+    time-to-live: -1
+    time-unit: milliseconds
+  thread-pool:
+    thread-pool-key-prefix: hehe
+    use-separate-thread-pools: true
+  trace-request-body: true
+
+#暴漏所有端点，zuul服务独有端点为toutes、filters端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,12 @@
+turbine:
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+  #配置监控的服务列表
+  app-config: consumer-service
+  #这个属性不在自动配置的Properties中，是由动态属性工厂获取的
+  #对应了熔断器客户端设置的状态监控流路径，默认值为/actuator/hystrix.stream
+  instanceUrlSuffix: hystrix.stream
+
+server:
+  port: 8085

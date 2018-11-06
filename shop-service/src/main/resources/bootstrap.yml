@@ -1,11 +1,14 @@
 spring:
+  #服务名
   application:
     name: shop-service
   profiles:
     active: dev
+  #config服务客户端配置
   cloud:
     config:
-      enabled: true
+      #开发时期暂时禁用配置服务
+      enabled: false
       username: user
       password: 123456
       name: shop
@@ -27,8 +30,10 @@ spring:
       #只允许本地系统属性覆盖远程属性，系统属性即命令行参数、环境变量(不包括本地配置文件)
       override-system-properties: false
 
+#eureka客户端配置
 eureka:
   client:
+      enabled: true
       fetch-registry: true
       register-with-eureka: true
       eureka-server-connect-timeout-seconds: 20
