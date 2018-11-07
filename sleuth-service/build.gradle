@@ -32,7 +32,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-config')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+	/* zipkin的依赖包含了sleuth的依赖 */
+	compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+    /*compile('org.springframework.cloud:spring-cloud-starter-sleuth')*/
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
