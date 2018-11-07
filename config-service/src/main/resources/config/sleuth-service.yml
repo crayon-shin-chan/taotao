@@ -91,6 +91,3 @@ spring:
     #当使用zuul时，启用span信息传播
     zuul:
       enabled: true
-
-
-

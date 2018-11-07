@@ -4,3 +4,4 @@ config-service            8888
 zuul-service              7777
 turbine-service           8085
 admin-service             8000            user         123456
+sleuth-service            7000         

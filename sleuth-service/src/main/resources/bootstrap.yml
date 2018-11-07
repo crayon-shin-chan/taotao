@@ -5,7 +5,8 @@ spring:
     active: dev
   cloud:
     config:
-      enabled: true
+      #开发期间暂不启用配置服务
+      enabled: false
       username: user
       password: 123456
       name: turbine
@@ -29,6 +30,7 @@ spring:
 
 eureka:
   client:
+    enabled: false
     fetch-registry: true
     register-with-eureka: true
     eureka-server-connect-timeout-seconds: 20
