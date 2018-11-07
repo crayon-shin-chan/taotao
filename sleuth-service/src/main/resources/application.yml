@@ -20,6 +20,7 @@ spring:
     #http啥啥啥
     http:
       enabled: true
+      #使用传统的sleuth方法，而不是brave
       legacy:
         enabled: true
     #日志配置
@@ -73,7 +74,8 @@ spring:
           enabled: true
         ignoredthreads:
     sampler:
-      probability:
+      #链路信息采样率，过高会影响性能
+      probability: 0.1
     #调度配置
     scheduled:
       enabled: true
@@ -92,10 +94,28 @@ spring:
     zuul:
       enabled: true
   zipkin:
-    #zip
+    #是否启用
+    enabled: true
+    #zipkin地址
     base-url: http://localhost:9411
+    #是否通过服务发现查找zipkin服务地址
+    discovery-client-enabled: false
+    #发送类型，可以使用rabbit和kafka消息服务器
+    sender:
+      type: web
+    #是否开启压缩
     compression:
       enabled: false
+    #编码
+    encoder: json_v1
+    locator:
+      discovery:
+        enabled: true
+    message-timeout: 1
+    service:
+      name:
+
+
 
 
 
