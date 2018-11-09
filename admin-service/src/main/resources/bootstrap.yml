@@ -15,16 +15,53 @@ eureka:
       defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
     #是否允许服务器重定向客户端请求
     allow-redirects: false
-    #客户端可用zone列表，貌似与AWS有关
-    #availability-zones:
     #貌似与抓取注册信息有关
-    #backup-registry-impl:
+    backup-registry-impl:
     #缓存抓心执行器，线程池大小
     cache-refresh-executor-thread-pool-size: 2
     #什么指数
     cache-refresh-executor-exponential-back-off-bound: 10
+    client-data-accept:
+    encoder-name:
+    decoder-name:
+    disable-delta: false
+    dollar-replacement:
+    escape-char-replacement:
+    eureka-server-d-n-s-name:
+    eureka-server-port:
+    eureka-server-total-connections-per-host: 50
+    eureka-server-total-connections: 200
+    eureka-server-read-timeout-seconds: 8
+    eureka-server-u-r-l-context:
+    eureka-service-url-poll-interval-seconds: 0
+    g-zip-content: true
+    filter-only-up-instances: true
+    heartbeat-executor-thread-pool-size: 2
+    heartbeat-executor-exponential-back-off-bound: 10
+    initial-instance-info-replication-interval-seconds: 40
+    instance-info-replication-interval-seconds: 30
+    log-delta-diff: false
+    prefer-same-zone-eureka: true
+    on-demand-update-status-change: true
+    #property-resolver:
+    #proxy-host:
+    #proxy-password:
+    #proxy-port:
+    #proxy-user-name:
+    #region: us-east-1
+    registry-fetch-interval-seconds: 30
+    registry-refresh-single-vip-address:
+    should-unregister-on-shutdown: true
+    use-dns-for-fetching-service-urls: false
+    should-enforce-registration-at-init: false
+    #客户端可用zone列表，貌似与AWS有关
+    #availability-zones:
+    #fetch-remote-regions-registry:
   #eureka客户端实例配置
   instance:
+    #客户端域名
+    hostname: localhost
+    ip-address: 127.0.0.1
     #实例名称
     appname: admin-service
     #组名，貌似不起作用
@@ -33,10 +70,43 @@ eureka:
     prefer-ip-address: true
     #当服务实例端口随机分配时，即server.port=0，会导致多个服务实例采用同一id注册
     instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
-    #非安全端口
+    #default-address-resolution-order: []
+    environment:
+      a: 1
+      b: 2
+      c: 3
+    #注册后的初始状态
+    initial-status: up
+    instance-enabled-onit: false
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
+    #元数据
+    metadata-map:
+      x: 1
+      y: 2
+      z: 3
+    #命名空间,用于查找属性,如eureka.hostname
+    #namespace: eureka
     non-secure-port: 80
-    #客户端域名
-    #hostname:
+    non-secure-port-enabled: true
+    secure-health-check-url:
+    secure-port: 443
+    secure-port-enabled: false
+    secure-virtual-host-name: unknow
+    #状态页,默认采用info端点
+    #status-page-url: http://localhost:8000/actuator/info
+    #status-page-url-path:
+    #主页
+    #home-page-url:
+    #home-page-url-path: /
+    #健康检查,默认采用health端点
+    #health-check-url: http://localhost:8000/actuator/health
+    #health-check-url-path:
+    #数据中心信息
+    #data-center-info:
+    #aws有关
+    #a-s-g-name:
+    #virtual-host-name:
 
 spring:
   application:
@@ -80,9 +150,11 @@ spring:
       #是否发送状态，不知道什么状态
       send-state: true
       #客户端请求的头信息
-      #headers:
+      headers:
+        x-taotao-config-client: true
       #客户端请求的token
-      #token:
+      token:
+
 
 health:
   config:
