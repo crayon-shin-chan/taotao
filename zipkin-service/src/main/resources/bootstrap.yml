@@ -1,7 +1,7 @@
 eureka:
   client:
     #服务注册要开启
-    enabled: false
+    enabled: true
     #客户端是否向服务器抓取注册表
     fetch-registry: true
     #客户端是否向服务器注册自身
@@ -112,7 +112,7 @@ spring:
   cloud:
     config:
       #暂时禁用配置服务
-      enabled: false
+      enabled: true
       #配置服务认证信息，貌似采用basic认证
       username: user
       password: 123456
@@ -124,7 +124,7 @@ spring:
       #uri: http://localhost:8888/
       #启用服务发现来查找config-service，需要先注册服务
       discovery:
-        enabled: false
+        enabled: true
         service-id: config-service
       #获取不到远程属性配置时，快速失败
       failFast: true
