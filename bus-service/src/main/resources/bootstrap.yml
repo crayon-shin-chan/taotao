@@ -1,23 +1,140 @@
+eureka:
+  client:
+    #服务注册要开启
+    enabled: true
+    #客户端是否向服务器抓取注册表
+    fetch-registry: true
+    #客户端是否向服务器注册自身
+    register-with-eureka: true
+    #服务连接超时秒数
+    eureka-server-connect-timeout-seconds: 20
+    #连接闲置超时秒数
+    eureka-connection-idle-timeout-seconds: 20
+    #eureka服务路径
+    service-url:
+      defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
+    #是否允许服务器重定向客户端请求
+    allow-redirects: false
+    #貌似与抓取注册信息有关
+    backup-registry-impl:
+    #缓存抓心执行器，线程池大小
+    cache-refresh-executor-thread-pool-size: 2
+    #什么指数
+    cache-refresh-executor-exponential-back-off-bound: 10
+    client-data-accept:
+    encoder-name:
+    decoder-name:
+    disable-delta: false
+    dollar-replacement:
+    escape-char-replacement:
+    eureka-server-d-n-s-name:
+    eureka-server-port:
+    eureka-server-total-connections-per-host: 50
+    eureka-server-total-connections: 200
+    eureka-server-read-timeout-seconds: 8
+    eureka-server-u-r-l-context:
+    eureka-service-url-poll-interval-seconds: 0
+    g-zip-content: true
+    filter-only-up-instances: true
+    heartbeat-executor-thread-pool-size: 2
+    heartbeat-executor-exponential-back-off-bound: 10
+    initial-instance-info-replication-interval-seconds: 40
+    instance-info-replication-interval-seconds: 30
+    log-delta-diff: false
+    prefer-same-zone-eureka: true
+    on-demand-update-status-change: true
+    registry-fetch-interval-seconds: 30
+    registry-refresh-single-vip-address:
+    should-unregister-on-shutdown: true
+    use-dns-for-fetching-service-urls: false
+    should-enforce-registration-at-init: false
+    #property-resolver:
+    #proxy-host:
+    #proxy-password:
+    #proxy-port:
+    #proxy-user-name:
+    #region: us-east-1
+    #客户端可用zone列表，貌似与AWS有关
+    #availability-zones:
+    #fetch-remote-regions-registry:
+  #eureka客户端实例配置
+  instance:
+    #客户端域名
+    hostname: localhost
+    ip-address: 127.0.0.1
+    #实例名称
+    appname: bus-service
+    #组名，貌似不起作用
+    app-group-name: admin
+    #是否优先采用ip地址干啥
+    prefer-ip-address: true
+    #当服务实例端口随机分配时，即server.port=0，会导致多个服务实例采用同一id注册
+    instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
+    #注册后的初始状态
+    initial-status: up
+    instance-enabled-onit: false
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
+    #命名空间,用于查找属性,如eureka.hostname
+    #namespace: eureka
+    non-secure-port: 80
+    non-secure-port-enabled: true
+    secure-health-check-url:
+    secure-port: 443
+    secure-port-enabled: false
+    secure-virtual-host-name: unknow
+    #状态页,默认采用info端点
+    #status-page-url: http://localhost:8000/actuator/info
+    #status-page-url-path:
+    #主页
+    #home-page-url:
+    #home-page-url-path: /
+    #健康检查,默认采用health端点
+    #health-check-url: http://localhost:8000/actuator/health
+    #health-check-url-path:
+    #aws有关
+    #a-s-g-name:
+    #virtual-host-name:
+    #数据中心信息
+    #data-center-info:
+    #default-address-resolution-order: []
+    #环境数据
+    #environment:
+    #元数据
+    #metadata-map:
+
+
 spring:
   application:
-    name: turbine-service
+    name: bus-service
   profiles:
     active: dev
   cloud:
     config:
+      #暂时禁用配置服务
       enabled: true
+      #配置服务认证信息，貌似采用basic认证
       username: user
       password: 123456
-      name: turbine
+      #定位配置文件
+      name: bus
       profile: dev
       label: master
-      uri: http://localhost:8888/
+      #指定配置服务地址
+      #uri: http://localhost:8888/
+      #启用服务发现来查找config-service，需要先注册服务
+      discovery:
+        enabled: true
+        service-id: config-service
       #获取不到远程属性配置时，快速失败
       failFast: true
+      #请求重试配置
       retry:
         initialInterval: 1000
         maxInterval: 90000
         maxAttempts: 5
+        #下一次循环的乘数因子
+        multiplier: 1.1
       #配置服务请求读取超时
       request-read-timeout: 5000
       #是否允许本地配置属性覆盖远程配置属性
@@ -26,21 +143,20 @@ spring:
       override-none: false
       #只允许本地系统属性覆盖远程属性，系统属性即命令行参数、环境变量(不包括本地配置文件)
       override-system-properties: false
+      #是否发送状态，不知道什么状态
+      send-state: true
+      #客户端请求的token
+      #token:
+      #客户端请求的头信息,这里这是个示例,没什么意义
+      headers:
+        x-taotao-config-client: true
+    #服务发现配置
+    discovery:
+      client:
+        health-indicator:
+          enabled: true
+          include-description: true
 
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    eureka-server-connect-timeout-seconds: 20
-    eureka-connection-idle-timeout-seconds: 20
-    service-url:
-      defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
-  instance:
-    appname: turbine-service
-    app-group-name: admin
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
-#当服务实例端口随机分配时，即server.port=0，此时${server.port}也为0，会导致多个服务实例采用同一id注册
 
 health:
   config:
