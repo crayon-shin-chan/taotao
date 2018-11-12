@@ -30,9 +30,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private MyJwtTokenConverter jwtTokenConverter;
 
-    @Autowired
-    private OAuth2AuthenticationManager authenticationManager;
-
     @Bean
     public TokenStore tokenStore(){
         return new InMemoryTokenStore();
@@ -51,8 +48,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         /* 密码编码器 */
         security.passwordEncoder(NoOpPasswordEncoder.getInstance())
-                /* 各个端点的权限表达式SpEL */
+                /* jwt公钥访问权限，允许所有*/
                 .tokenKeyAccess("permitAll()")
+                /* 检查token正确性端点权限，需要认证后访问 */
                 .checkTokenAccess("isAuthenticated()")
                 .realm("hehe")
                 .allowFormAuthenticationForClients();
@@ -64,8 +62,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         /* token转换器，定义额token生产的逻辑 */
         endpoints.accessTokenConverter(jwtTokenConverter)
                 /* token存储 */
-                .tokenStore(tokenStore())
-                /* 认证管理器 */
-                .authenticationManager(authenticationManager);
+                .tokenStore(tokenStore());
     }
 }

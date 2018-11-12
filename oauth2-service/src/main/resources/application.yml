@@ -27,9 +27,9 @@ spring:
     schema-username: root
     schema-password: 123456
     #表数据初始化脚本，用户名、密码
-    #data: classpath:data.sql
-    #data-username: root
-    #data-password: 123456
+    data: classpath:data.sql
+    data-username: root
+    data-password: 123456
     #hikari连接池配置
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
