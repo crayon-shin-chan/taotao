@@ -2,12 +2,17 @@ package czy.taotao.oauth2.config;
 
 import czy.taotao.oauth2.jwt.MyJwtTokenConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 import javax.sql.DataSource;
 
@@ -25,6 +30,14 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private MyJwtTokenConverter jwtTokenConverter;
 
+    @Autowired
+    private OAuth2AuthenticationManager authenticationManager;
+
+    @Bean
+    public TokenStore tokenStore(){
+        return new InMemoryTokenStore();
+    }
+
     /* 客户端详情服务配置，类似于用户详情配置，但是由于客户端一般不会随意增删，可以配置于内存中 */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -39,8 +52,8 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         /* 密码编码器 */
         security.passwordEncoder(NoOpPasswordEncoder.getInstance())
                 /* 各个端点的权限表达式SpEL */
+                .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()")
-                .tokenKeyAccess("isAuthenticated()")
                 .realm("hehe")
                 .allowFormAuthenticationForClients();
     }
@@ -48,6 +61,11 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     /* 端点配置 */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.accessTokenConverter(jwtTokenConverter);
+        /* token转换器，定义额token生产的逻辑 */
+        endpoints.accessTokenConverter(jwtTokenConverter)
+                /* token存储 */
+                .tokenStore(tokenStore())
+                /* 认证管理器 */
+                .authenticationManager(authenticationManager);
     }
 }
