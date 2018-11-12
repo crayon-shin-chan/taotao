@@ -1,5 +1,6 @@
 package czy.taotao.oauth2.config;
 
+import czy.taotao.oauth2.jwt.MyJwtTokenConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -20,6 +21,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    private MyJwtTokenConverter jwtTokenConverter;
 
     /* 客户端详情服务配置，类似于用户详情配置，但是由于客户端一般不会随意增删，可以配置于内存中 */
     @Override
@@ -44,6 +48,6 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     /* 端点配置 */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-
+        endpoints.accessTokenConverter(jwtTokenConverter);
     }
 }
