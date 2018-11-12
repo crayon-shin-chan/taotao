@@ -7,10 +7,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 
-@EnableOAuth2Sso
-@EnableResourceServer
-@EnableAuthorizationServer
+/* 启用认证服务器，其他服务会调用认证服务器的接口，完成登陆、获取令牌等功能 */
+
 @SpringBootApplication
+@EnableAuthorizationServer
 public class Oauth2Application {
 
 	public static void main(String[] args) {

@@ -1,6 +1,47 @@
+security:
+  oauth2:
+    #认证服务器配置
+    authorization:
+      #检查令牌端点的访问规则，为SpEL表达式，默认为denyAll()
+      check-token-access: isAuthenticated()
+      #token key端点的访问规则
+      token-key-access: isAuthenticated()
+      #领域名，不理解
+      realm: hehe
+    #单点登陆路径
+    sso:
+      login-path: /login
+
 spring:
-  security:
-    oauth2:
-      client:
-        provider:
-        registration:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_oauth2_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    continue-on-error: false
+    #初始化数据库脚本不包括创建数据库，只是包含了创建表的DDL
+    #初始化模式，总是初始化
+    initialization-mode: always
+    #表结构初始化脚本，用户名、密码
+    schema: classpath:schema.sql
+    schema-username: root
+    schema-password: 123456
+    #表数据初始化脚本，用户名、密码
+    #data: classpath:data.sql
+    #data-username: root
+    #data-password: 123456
+    #hikari连接池配置
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+logging:
+  level:
+    root: info
