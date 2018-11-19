@@ -27,7 +27,6 @@ ext {
 	springCloudVersion = 'Finchley.SR1'
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
