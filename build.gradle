@@ -1,8 +1,43 @@
 /* gradle根项目构建文件 */
-
+buildscript {
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 /* 应用于所有子项目以及根项目的脚本 */
 allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
+    group = 'czy.taotao'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        springCloudVersion = 'Finchley.SR1'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    dependencies{
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
 }
 
 /* 只应用于子项目的脚本，这里的脚本内容，貌似只会在执行父项目任务时读取，如果直接执行子项目任务，好像不能读取 */

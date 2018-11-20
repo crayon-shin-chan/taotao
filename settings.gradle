@@ -1,4 +1,14 @@
 rootProject.name="taotao"
 
 /* 在settings.gradle文件中声明，根项目与子项目的包含关系，目录分隔使用冒号： */
-include ':config-service' ,':consumer-service' ,':eureka-service' ,':shop-service' ,':turbine-service' ,':zuul-service' ,':bus-service' ,':sleuth-service' ,':admin-service' ,':oauth2-service'
+include ':config-service'
+include ':consumer-service'
+include ':eureka-service'
+include ':shop-service'
+include ':turbine-service'
+include ':zuul-service'
+include ':bus-service'
+include ':sleuth-service'
+include ':admin-service'
+include ':oauth2-service'
+include ':zipkin-service'
