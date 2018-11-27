@@ -122,8 +122,6 @@ eureka:
 spring:
   application:
     name: config-service
-  profiles:
-    active: dev
     #服务发现配置
     discovery:
       client:
