@@ -35,7 +35,14 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         return new InMemoryTokenStore();
     }
 
-    /* 客户端详情服务配置，类似于用户详情配置，但是由于客户端一般不会随意增删，可以配置于内存中 */
+    /* 客户端详情服务配置，类似于用户详情配置，但是由于客户端一般不会随意增删，可以配置于内存中
+     * 客户端详情配置，是用于认证端口的，即/oauth/authorize这个端口，客户端各个属性如下：
+     * clientId：客户端ID，唯一标识
+     * resourceIds：客户端资源ID，多个ID以逗号分隔
+     * secret：客户端密钥
+     * scope：客户端域，多个域使用逗号分隔
+     * authorized_grant_types：客户端授权类型，多个以逗号分隔
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         /* 使用数据库存储客户端信息 */
