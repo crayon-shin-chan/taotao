@@ -15,9 +15,7 @@ eureka:
       defaultZone: http://user:peer1@peer1:9999/eureka,http://user:peer2@peer2:9998/eureka,http://user:peer3@peer3:9997/eureka
     #是否允许服务器重定向客户端请求
     allow-redirects: false
-    #貌似与抓取注册信息有关
-    backup-registry-impl:
-    #缓存抓心执行器，线程池大小
+    #缓存刷新执行器，线程池大小
     cache-refresh-executor-thread-pool-size: 2
     #什么指数
     cache-refresh-executor-exponential-back-off-bound: 10
@@ -33,7 +31,7 @@ eureka:
     eureka-server-total-connections: 200
     eureka-server-read-timeout-seconds: 8
     eureka-server-u-r-l-context:
-    eureka-service-url-poll-interval-seconds: 0
+    eureka-service-url-poll-interval-seconds: 10
     g-zip-content: true
     filter-only-up-instances: true
     heartbeat-executor-thread-pool-size: 2
@@ -44,10 +42,12 @@ eureka:
     prefer-same-zone-eureka: true
     on-demand-update-status-change: true
     registry-fetch-interval-seconds: 30
-    registry-refresh-single-vip-address:
     should-unregister-on-shutdown: true
     use-dns-for-fetching-service-urls: false
     should-enforce-registration-at-init: false
+    #貌似与抓取注册信息有关
+    #backup-registry-impl:
+    #registry-refresh-single-vip-address:
     #property-resolver:
     #proxy-host:
     #proxy-password:
