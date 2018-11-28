@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 
 /**
  *  作为Eureka客户端不需要其他配置，这样就可以实现服务注册
@@ -12,7 +13,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  *	@EnableEurekaClient
  *	@EnableDiscoveryClient
  *
- * @EnableOAuth2Sso： 启用单点登陆
+ * @EnableOAuth2Sso： 启用单点登陆，包含了@EnableOAuth2Client注解
  */
 @EnableOAuth2Sso
 @SpringBootApplication
