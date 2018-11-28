@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -30,6 +31,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private MyJwtTokenConverter jwtTokenConverter;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Bean
     public TokenStore tokenStore(){
         return new InMemoryTokenStore();
@@ -42,6 +46,10 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
      * secret：客户端密钥
      * scope：客户端域，多个域使用逗号分隔
      * authorized_grant_types：客户端授权类型，多个以逗号分隔
+     * web_server_redirect_uri：认证后重定向URL，参数中使用的URL必须包含于此
+     * authorities：客户端权限，用于控制客户端是否可以访问token_key、check_token等端点
+     * access_token_validity：是否对访问token进行验证，0=不验证，1=验证
+     * refresh_token_validity：是否对刷新token进行验证，因为刷新token一般过期时间为0，所以配置为不验证
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -72,6 +80,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         /* token转换器，定义额token生产的逻辑 */
         endpoints.accessTokenConverter(jwtTokenConverter)
                 /* token存储 */
-                .tokenStore(tokenStore());
+                .tokenStore(tokenStore())
+                /* 刷新token需要UserDetailsService，不配的话，刷新时会报错 */
+                .reuseRefreshTokens(false)
+                .userDetailsService(userDetailsService);
     }
 }
