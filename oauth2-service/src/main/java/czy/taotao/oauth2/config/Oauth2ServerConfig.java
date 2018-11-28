@@ -81,7 +81,11 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints.accessTokenConverter(jwtTokenConverter)
                 /* token存储 */
                 .tokenStore(tokenStore())
-                /* 刷新token需要UserDetailsService，不配的话，刷新时会报错 */
+                /* 配置认证管理器，用于开启密码授权 */
+                //.authenticationManager()
+                /* 配置授权码服务，默认有实现 */
+                //.authorizationCodeServices()
+                /* 刷新token需要UserDetailsService，用于判断用户是否还是存活的 */
                 .reuseRefreshTokens(false)
                 .userDetailsService(userDetailsService);
     }
