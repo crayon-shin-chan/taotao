@@ -92,12 +92,13 @@ eureka:
     lease-renewal-interval-in-seconds: 30
     #命名空间,用于查找属性,如eureka.hostname
     #namespace: eureka
-    non-secure-port: 80
-    non-secure-port-enabled: true
-    secure-health-check-url:
-    secure-port: 443
-    secure-port-enabled: false
-    secure-virtual-host-name: unknow
+    #非安全端口不能启用，不然服务注册页面链接到的是错误的地址
+    #non-secure-port: 80
+    #non-secure-port-enabled: true
+    #secure-health-check-url:
+    #secure-port: 443
+    #secure-port-enabled: false
+    #secure-virtual-host-name: unknow
     #状态页,默认采用info端点
     #status-page-url: http://localhost:8000/actuator/info
     #status-page-url-path:

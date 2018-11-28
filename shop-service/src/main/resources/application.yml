@@ -8,3 +8,29 @@ spring:
     username: root
     password: 123456
 
+
+#oauth2客户端配置
+security:
+  oauth2:
+    #sso:
+      #登陆页面，重定向到授权服务器
+      #login-path: http://localhost:8080/login
+    client:
+      client-id: shop-service
+      client-secret: 123456
+      authorities: ROLE_ADMIN
+      scope: read,wirite
+      #additional-information:
+      authorized-grant-types: refresh_token,password,implicit,authorization_code
+      auto-approve-scopes: read
+      grant-type: code
+      #registered-redirect-uri:
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: http://localhost:8080/oauth/token
+      access-token-validity-seconds: 10
+      refresh-token-validity-seconds: 10
+      #resource-ids:
+      use-current-uri: true
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+      user-info-uri: http://localhost:8080/oauth/check_token

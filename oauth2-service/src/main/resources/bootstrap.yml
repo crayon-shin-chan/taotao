@@ -1,7 +1,7 @@
 eureka:
   client:
     #服务注册要开启
-    enabled: false
+    enabled: true
     #客户端是否向服务器抓取注册表
     fetch-registry: true
     #客户端是否向服务器注册自身
@@ -68,7 +68,7 @@ eureka:
     #是否优先采用ip地址干啥
     prefer-ip-address: true
     #当服务实例端口随机分配时，即server.port=0，会导致多个服务实例采用同一id注册
-    instance-id: ${spring.cloud.client.ip-address}:${random.int[1024,65536]}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     #注册后的初始状态
     initial-status: up
     instance-enabled-onit: false
@@ -76,12 +76,13 @@ eureka:
     lease-renewal-interval-in-seconds: 30
     #命名空间,用于查找属性,如eureka.hostname
     #namespace: eureka
-    non-secure-port: 80
-    non-secure-port-enabled: true
-    secure-health-check-url:
-    secure-port: 443
-    secure-port-enabled: false
-    secure-virtual-host-name: unknow
+    #非安全端口不能启用，不然服务注册页面链接到的是错误的地址
+    #non-secure-port: 80
+    #non-secure-port-enabled: true
+    #secure-health-check-url:
+    #secure-port: 443
+    #secure-port-enabled: false
+    #secure-virtual-host-name: unknow
     #状态页,默认采用info端点
     #status-page-url: http://localhost:8000/actuator/info
     #status-page-url-path:
