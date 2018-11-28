@@ -65,7 +65,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         /* 密码编码器 */
         security.passwordEncoder(NoOpPasswordEncoder.getInstance())
-                /* jwt公钥访问权限，允许所有*/
+                /* jwt公钥访问权限，允许所有，资源服务从这个接口获取公钥，从而要整jwt*/
                 .tokenKeyAccess("permitAll()")
                 /* 检查token正确性端点权限，需要认证后访问 */
                 .checkTokenAccess("hasRole('ADMIN')")

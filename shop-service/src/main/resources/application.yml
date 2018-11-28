@@ -31,6 +31,9 @@ security:
       refresh-token-validity-seconds: 10
       #resource-ids:
       use-current-uri: true
+      #认证方案，默认使用Http Basic形式
+      authentication-scheme: header
+      client-authentication-scheme: header
     resource:
       token-info-uri: http://localhost:8080/oauth/check_token
       user-info-uri: http://localhost:8080/oauth/check_token
