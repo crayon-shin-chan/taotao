@@ -50,7 +50,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
 
-    /* 端点安全配置 */
+    /* 端点安全配置，这里的端点安全，实际上是以client_id为用户名,client_secret为密码的客户端安全配置，权限也是客户端具有的权限
+     * 可以采用Http Basic认证来使用用户名/密码
+     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         /* 密码编码器 */
@@ -58,8 +60,9 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 /* jwt公钥访问权限，允许所有*/
                 .tokenKeyAccess("permitAll()")
                 /* 检查token正确性端点权限，需要认证后访问 */
-                .checkTokenAccess("isAuthenticated()")
+                .checkTokenAccess("hasRole('ADMIN')")
                 .realm("hehe")
+                /* 是否允许表单认证 */
                 .allowFormAuthenticationForClients();
     }
 

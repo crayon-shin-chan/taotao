@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -28,9 +29,12 @@ public class MyJwtTokenConverter extends JwtAccessTokenConverter {
      */
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+        accessToken = new DefaultOAuth2AccessToken(accessToken);
         Object principal = authentication.getPrincipal();
+        logger.info("创建token，当前用户为："+principal.toString());
         /* 将当前认证用户添加为附加信息 */
         accessToken.getAdditionalInformation().put(USER_INFO_KEY, principal);
+        ((DefaultOAuth2AccessToken) accessToken).setExpiration(new Date(new Date().getTime()+3600*1000*1000L));
         return super.enhance(accessToken, authentication);
     }
 

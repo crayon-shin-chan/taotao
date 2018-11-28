@@ -24,7 +24,7 @@ public class EndpointSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/oauth/authorize").hasRole("ADMIN")
+                .antMatchers("/oauth/authorize").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .httpBasic();
