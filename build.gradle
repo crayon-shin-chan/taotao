@@ -1,7 +1,8 @@
 /* gradle根项目构建文件 */
 buildscript {
     ext {
-        springBootVersion = '2.0.6.RELEASE'
+        /** spring boot 版本，主要用于gradle插件，有依赖管理功能  */
+        springBootVersion = '2.1.7.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -12,6 +13,8 @@ buildscript {
 }
 /* 应用于所有子项目以及根项目的脚本 */
 allprojects {
+    
+    /* 所有项目应用插件 */
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
@@ -22,13 +25,16 @@ allprojects {
     sourceCompatibility = 1.8
 
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 
     ext {
-        springCloudVersion = 'Finchley.SR1'
+        /* spring cloud依赖版本 */
+        springCloudVersion = 'Greenwich.RELEASE'
     }
 
+    /* 依赖管理，导入spring cloud依赖 */
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
