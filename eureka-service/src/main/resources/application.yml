@@ -20,7 +20,7 @@ eureka:
     a-s-g-update-interval-ms: 1000
     a-s-g-cache-expiry-timeout-ms: 1000
     #禁用自我保护，保证及时踢出不可用服务
-    enable-self-preservation: false
+    enable-self-preservation: true
     #复制请求压缩，开启就报错，压缩没问题，但是好像解压不行
     enable-replicated-request-compression: false
     renewal-percent-threshold: 0.85

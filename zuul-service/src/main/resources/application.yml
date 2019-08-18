@@ -1,6 +1,6 @@
 
 server:
-  port: 7777
+  port: 80
 
 #加上负载均衡超时，第一次访问zuul不会出错，在这里配置zuul使用服务发现时的超时
 ribbon:
@@ -16,6 +16,7 @@ zuul:
   routes:
     shop-service: /shop/**
     consumer-service: /consumer/**
+    eureka-service: /eureka/**
     exception: /exception/**
   #zuul服务转发请求时，移除prefix设置的代理前缀
   strip-prefix: true

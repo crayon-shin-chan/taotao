@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * 配置一个pre类型的Zuul过滤器，用于在请求被路由之前拦截请求
  */
-@Component
+//@Component
 public class PreFilter extends ZuulFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(PreFilter.class);
