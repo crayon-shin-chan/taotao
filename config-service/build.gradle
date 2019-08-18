@@ -4,5 +4,4 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.cloud:spring-cloud-config-server')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-	compile('log4j:log4j:1.2.17')
 }

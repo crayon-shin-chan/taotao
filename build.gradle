@@ -32,6 +32,15 @@ allprojects {
     ext {
         /* spring cloud依赖版本 */
         springCloudVersion = 'Greenwich.RELEASE'
+        /* zipkin服务版本 */
+        zipkinServerVersion = '2.12.9'
+        /* druid连接池版本 */
+        druidVersion = '1.1.19'
+        /* mybatis starter version */
+        mybatisSpringBootStarterVersion = '2.1.0'
+        /* spring boot admin version */
+        springBootAdminStarterVersion = '2.1.6'
+
     }
 
     /* 依赖管理，导入spring cloud依赖 */

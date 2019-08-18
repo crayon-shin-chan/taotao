@@ -1,11 +1,11 @@
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework.boot:spring-boot-starter")
 	/* 这里需要移除org.apache.logging.log4j的日志实现 */
-    compile('io.zipkin.java:zipkin-server:2.11.8'){
+    compile("io.zipkin.java:zipkin-server:${zipkinServerVersion}"){
 		exclude group:'org.apache.logging.log4j',module: 'log4j-slf4j-impl'
 	}
-    compile('io.zipkin.java:zipkin-autoconfigure-ui:2.11.8'){
+    compile("io.zipkin.java:zipkin-autoconfigure-ui:2.11.8"){
 		exclude group:'org.apache.logging.log4j',module: 'log4j-slf4j-impl'
 	}
 }
