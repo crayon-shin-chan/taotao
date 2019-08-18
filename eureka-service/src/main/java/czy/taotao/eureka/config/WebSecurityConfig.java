@@ -11,8 +11,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /* 需要为服务注册路由禁用csrf */
-        http.csrf().ignoringAntMatchers("/eureka/**");
+        /* 需要为服务注册路由禁用csrf，以免影响eureka/**接口 */
+        http.csrf().disable();
         super.configure(http);
     }
 }
