@@ -3,12 +3,16 @@ buildscript {
     ext {
         /** spring boot 版本，主要用于gradle插件，有依赖管理功能  */
         springBootVersion = '2.1.7.RELEASE'
+        /* mybatis generator version */
+        mybatisGeneratorVersion = '1.3.7'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}")
+        classpath("mysql:mysql-connector-java:8.0.11")
     }
 }
 /* 应用于所有子项目以及根项目的脚本 */
@@ -25,7 +29,7 @@ allprojects {
     sourceCompatibility = 1.8
 
     repositories {
-        mavenLocal()
+        //mavenLocal()
         mavenCentral()
     }
 
@@ -38,6 +42,8 @@ allprojects {
         druidVersion = '1.1.19'
         /* mybatis starter version */
         mybatisSpringBootStarterVersion = '2.1.0'
+        /* mybatis generator version */
+        mybatisGeneratorVersion = '1.3.7'
         /* spring boot admin version */
         springBootAdminStarterVersion = '2.1.6'
 
