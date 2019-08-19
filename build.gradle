@@ -37,6 +37,8 @@ allprojects {
         druidVersion = '1.1.19'
         /* mybatis starter version */
         mybatisSpringBootStarterVersion = '2.1.0'
+        /* mybatis 动态sql版本 */
+        mybatisDynamicSqlVersion = '1.1.2'
         /* mybatis generator version */
         mybatisGeneratorVersion = '1.3.7'
         /* spring boot admin version */

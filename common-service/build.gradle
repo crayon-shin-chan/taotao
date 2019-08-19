@@ -3,6 +3,7 @@ configurations {
 }
 
 dependencies {
+    compile("org.mybatis.dynamic-sql:mybatis-dynamic-sql:${mybatisDynamicSqlVersion}")
     mybatis("org.mybatis.generator:mybatis-generator-core:${mybatisGeneratorVersion}")
     mybatis("mysql:mysql-connector-java")
 }
