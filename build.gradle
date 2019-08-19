@@ -31,6 +31,8 @@ allprojects {
     ext {
         /* spring cloud依赖版本 */
         springCloudVersion = 'Greenwich.RELEASE'
+        /* logback to logstash encoder version */
+        logstashLogbackEncoderVersion = '6.1'
         /* zipkin服务版本 */
         zipkinServerVersion = '2.12.9'
         /* druid连接池版本 */
@@ -54,6 +56,9 @@ allprojects {
     }
 
     dependencies{
+        compile('org.springframework.boot:spring-boot-starter-logging')
+        compile("net.logstash.logback:logstash-logback-encoder:${logstashLogbackEncoderVersion}")
+        compile('org.springframework.boot:spring-boot-devtools')
         testCompile('org.springframework.boot:spring-boot-starter-test')
     }
 }
